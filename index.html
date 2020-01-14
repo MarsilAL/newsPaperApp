@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <title>newsPaperApp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+<nav></nav>
+
+<body>
+        <script>
+
+                $(document).ready(function () {
+        
+        
+                    $(".btn").click(function () {
+        
+                        $(".loginSection").slideDown();
+                        $(".btn").hide();
+                        $(".centered").hide();
+        
+                    });
+        
+                });
+            </script>
+
+    <section class="loginSection">
+
+        <article>
+
+            <form action="" method="post">
+                <div class="imgLogoAvatar">
+                    <img src="/images/logo.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="loginContainer">
+                    <label for="uname"><b>UserName</b></label>
+                    <input type="text" placeholder="Enter your username ..." name="uname" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter your user password ..." name="psw" required>
+
+                    <button type="submit"><b>Login</b></button>
+
+                </div>
+
+            </form>
+
+
+        </article>
+
+    </section>
+
+
+</body>
+<footer>
+    <div class="imgideaslogo">
+            <button class="btn" id="btn"><b>Enter</b></button>
+        <img src="/images/ideaslogo.png" alt="ideaslogo" class="ideaslogo">
+        <div class="centered">Wellcome To newsPaperApp from ideas-engineering</div>
+        <button class="btn" id="btn"><b>Enter</b></button>
+    </div>
+
+</footer>
+
+</html>
