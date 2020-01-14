@@ -12,6 +12,7 @@
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    box-shadow: 0ch;
   }
 
   button {
