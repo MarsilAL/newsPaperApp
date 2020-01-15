@@ -1,13 +1,13 @@
 
   .loginSection {
     display: none;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 15%;
+    margin-right: 15%;
   }
 
   form {border: 3px solid #f1f1f1;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
   }
   
   input[type=text], input[type=password] {
@@ -37,7 +37,7 @@
 
   .imgLogoAvatar {
     text-align: center;
-    margin: 24px 0 12px 0;
+    margin: 2px 0 12px 0;
   }
   img.Avatar {
     width: 40%;
@@ -66,8 +66,8 @@
   .imgideaslogo{
     background-color: black;
     margin: 12px 5 12px 50px;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 25%;
+    margin-right: 25%;
   }
 
   @media screen and (max-width: 300px) {
@@ -78,30 +78,88 @@
   }
 
   .errorMessage {
-    visibility: hidden; 
+    display: none;
+    color: red;
+    text-align: center;
   }
 
+
+  footer{
+    margin-top: 5px;
+  }
 
   /*  news section   */
 
   .newsSection {
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 1px;
   }
 
-  .imgLogoAvatarW {
-    text-align: center;
-    margin: 24px 0 12px 0;
+  .header{
+    text-align: left;
+    margin: 24px 0 5px 0;
+    background: #70a2d7;
+    padding: 5px;
   }
 
-  img.AvatarW {
-    width: 40%;
+  .hlogo {
+    width: 60px;
     border-radius: 20%;
-    box-shadow: 5px 9px 5px 2px #aaaaaa;
+    box-shadow: 1px 2px 2px 2px #aaaaaa;
+    padding: 5px;
   }
+
     /*  news section  Search  */
 
 
 
-      /*  news section Result  */
+    /* Style the search field */
+    form.searchForm input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      width: 80%;
+      background: #f1f1f1;
+    }
+    
+    /* Style the submit button */
+    form.searchForm  button {
+      float: left;
+      width: 20%;
+      padding: 10px;
+      background: #2196F3;
+      color: white;
+      font-size: 17px;
+      border: 1px solid grey;
+      border-left: none; /* Prevent double borders */
+      cursor: pointer;
+    }
+    
+    form.searchForm  button:hover {
+      background: #0b7dda;
+    }
+    
+    /* Clear floats */
+    form.searchForm ::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+
+      /*  news section Results  */
+
+      .resultaPage{
+        margin-top: 75px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 5px;
+        background: #b5c4d6;
+      }
+
+
+
+
 

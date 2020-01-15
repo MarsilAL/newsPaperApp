@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/main.af46ece4.css">
     <title>newsPaperApp</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/newsPaperApp.e31bb0bc.js"></script>
 <script src="/main.af46ece4.js"></script></head>
 
@@ -15,23 +16,23 @@
 
     <section id="loginSection" class="loginSection">
         <article>
-                <div class="imgLogoAvatar">
-                    <img src="/logo.6023b87e.png" alt="Avatar" class="Avatar">
-                </div>
+            <div class="imgLogoAvatar">
+                <img src="/logo.6023b87e.png" alt="Avatar" class="Avatar" id="Avatar">
+            </div>
 
-                <div class="loginContainer">
+            <div class="loginContainer">
 
-                    <p class="errorMessage">Eingabe falsch</p>
+                <p class="errorMessage" id="errorMessage">Eingabe falsch</p>
 
-                    <label for="uname"><b>UserName</b></label>
-                    <input type="text" placeholder="Enter your username ..." name="uname" id="uname" required="">
+                <label for="uname"><b>UserName</b></label>
+                <input type="text" placeholder="Enter your username ..." name="uname" id="uname" required="">
 
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter your user password ..." name="psw" id="psw" required="">
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter your user password ..." name="psw" id="psw" required="">
 
-                    <button id="loginButton"><b>Login</b></button>
+                <button id="loginButton"><b>Login</b></button>
 
-                </div>
+            </div>
 
 
         </article>
@@ -40,24 +41,58 @@
 
     <section id="newsSection" class="newsSection">
 
-            <article>
-                <div class="imgLogoAvatarW">
-                    <img src="/logo.6023b87e.png" alt="AvatarW" class="AvatarW">
-                </div>
-    
-                <figure class="result" id="result">
-                    <center><p>WELCOME</p></center>
-                    
+       
+            <div class="header">
 
-                    
-    
-                </figure>
-    
-            </article>
-    
-    
-    
-        </section>
+                <img src="/logo.6023b87e.png" alt="hlogo" class="hlogo">
+
+            </div>
+
+            <center>
+                    <p>WELCOME</p>
+                </center>
+                <div id="searchdiv" class="searchdiv">
+                    <!-- Search form -->
+                    <form class="searchForm" id="searchForm" action="">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+
+                </div>
+
+            <figure class="resultaPage" id="resultsPage">
+
+
+                <article class="resutlsar" id="class=&quot;resutlsar&quot;">
+
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+                    <br>a line break.
+
+
+
+
+                </article>
+
+
+
+
+
+
+            </figure>
+
+      
+
+
+
+    </section>
 
 
 </body>
