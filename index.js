@@ -30,19 +30,19 @@ function handleLogin(event) {
     const apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
     $.ajax({
         url: apiUrl,
-        success: function(json) {
+        success: function (json) {
             $("#errorMessage").hide();
             $("#loginSection").hide();
             $(".imgideaslogo").hide();
             $(".newsSection").show();
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-           alert(textStatus, errorThrown);
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(textStatus, errorThrown);
         },
-    
+
         //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
         beforeSend: function (xhr) {
-          xhr.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
         },
         type: 'GET',
         contentType: 'json',
@@ -75,7 +75,7 @@ function pswkeydown() {
 
 /**Search */
 
-function goToApi(event){
+function goToApi(event) {
     event.preventDefault();
 
     const myuser = $("#uname").val();
@@ -83,28 +83,34 @@ function goToApi(event){
     const input = $("#inputTxt").val();
     const articlesLimit = $("#articlesLimit").val();
     $.get({
-        url: 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q= '+ encodeURI(input)+'&limit=' + articlesLimit,
+        url: 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q= ' + encodeURI(input) + '&limit=' + articlesLimit,
 
         beforeSend: function (xhr) {
-            xhr.setRequestHeader ("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
-          },
-
-
-        success: function(data) {
-            console.log(data),
-
-            $( "#result" )
-            .append( "<p class='article__title'>" + data.documents[0].title + "<p>" )
-            .append("<br></br>")
-            .append("category: "+ data.documents[0].category).addClass("article__category")
-            .append("<br></br>")
-            .append( "Article: " + data.documents[0].content )
-            .append( "<a href="+ data.documents[0].url + ">" +"Go To the article." + "</a>")
+            xhr.setRequestHeader("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-            alert(textStatus, errorThrown);
-         },
 
-        });
+
+        success: function (data) {
+
+            for (i = 0; i < articlesLimit; i++) {
+                $("#result")
+                    .append("<p class='article__title'>" + data.documents[i].title + "<p>")
+                    .append("<br></br>")
+                    .append("category: " + data.documents[i].category).addClass("article__category")
+                    .append("<br></br>")
+                    .append("Article: " + data.documents[i].content)
+                    .append("<a href=" + data.documents[i].url + ">" + "Go To the article." + "</a>")
+                    .append("<br></br>")
+                    .append("<hr>")
+                    .append("<br></br>")
+                    .append("<hr>")
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert(textStatus, errorThrown);
+        },
+
+    });
 
 }

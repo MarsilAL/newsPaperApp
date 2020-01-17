@@ -230,5 +230,8 @@ article{
 .article__url{
   box-shadow: 3px 6px 15px 0px #5e758d
 }
-
+a {
+  text-align: center;
+  position: center;
+}
 /**/

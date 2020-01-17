@@ -201,7 +201,9 @@ function goToApi(event) {
       xhr.setRequestHeader("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
     },
     success: function success(data) {
-      console.log(data), $("#result").append("<p class='article__title'>" + data.documents[0].title + "<p>").append("<br></br>").append("category: " + data.documents[0].category).addClass("article__category").append("<br></br>").append("Article: " + data.documents[0].content).append("<a href=" + data.documents[0].url + ">" + "Go To the article." + "</a>");
+      for (i = 0; i < articlesLimit; i++) {
+        $("#result").append("<p class='article__title'>" + data.documents[i].title + "<p>").append("<br></br>").append("category: " + data.documents[i].category).addClass("article__category").append("<br></br>").append("Article: " + data.documents[i].content).append("<a href=" + data.documents[i].url + ">" + "Go To the article." + "</a>").append("<br></br>").append("<hr>").append("<br></br>").append("<hr>");
+      }
     },
     error: function error(XMLHttpRequest, textStatus, errorThrown) {
       alert(textStatus, errorThrown);
@@ -236,7 +238,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62039" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61587" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
