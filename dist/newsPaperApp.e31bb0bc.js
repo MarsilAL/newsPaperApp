@@ -140,24 +140,25 @@ function handleLogin(event) {
   event.preventDefault();
   var username = $("#uname").val();
   var password = $("#psw").val();
-
-  if (credentialsValid(username, password)) {
-    $("#errorMessage").hide();
-    $("#loginSection").hide();
-    $(".imgideaslogo").hide();
-    $(".newsSection").show();
-  } else {
-    $("#errorMessage").show();
-    $("#Avatar").css("transform", "rotateY(180deg)");
-    $("#Avatar").css("background-color", "red");
-    $("#Avatar").css("border", "2px solid #reff0000d");
-  }
-}
-
-function credentialsValid(username, password) {
-  var valid = 'azubiApi' == username && 'azubiApi#123' == password;
-  console.log("credentials valid:", valid);
-  return valid;
+  var apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
+  $.ajax({
+    url: apiUrl,
+    success: function success(json) {
+      $("#errorMessage").hide();
+      $("#loginSection").hide();
+      $(".imgideaslogo").hide();
+      $(".newsSection").show();
+    },
+    error: function error(XMLHttpRequest, textStatus, errorThrown) {
+      alert(textStatus, errorThrown);
+    },
+    //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
+    beforeSend: function beforeSend(xhr) {
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
+    },
+    type: 'GET',
+    contentType: 'json'
+  });
 }
 /*Avatar ef*/
 
@@ -215,13 +216,19 @@ function goToApi(event) {
   var mypwd = $("#psw").val();
   var apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
   $.ajax({
-    headers: {
-      'Authorization': 'Basic ' + btoa(myuser + ':' + mypwd)
+    url: apiUrl,
+    success: function success(json) {
+      alert("Success", json);
     },
-    url: apiUrl
-  });
-  $.get(apiUrl, function (data) {
-    console.log(data);
+    error: function error(XMLHttpRequest, textStatus, errorThrown) {
+      alert(textStatus, errorThrown);
+    },
+    //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
+    beforeSend: function beforeSend(xhr) {
+      xhr.setRequestHeader("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
+    },
+    type: 'GET',
+    contentType: 'json'
   });
 }
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -252,7 +259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49284" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51107" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

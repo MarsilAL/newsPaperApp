@@ -27,24 +27,31 @@ function handleLogin(event) {
     const username = $("#uname").val();
     const password = $("#psw").val();
 
-    if (credentialsValid(username, password)) {
-        $("#errorMessage").hide();
-        $("#loginSection").hide();
-        $(".imgideaslogo").hide();
-        $(".newsSection").show();
-    } else {
-        $("#errorMessage").show();
-        $("#Avatar").css("transform", "rotateY(180deg)");
-        $("#Avatar").css("background-color", "red");
-        $("#Avatar").css("border", "2px solid #reff0000d");
-    }
+    const apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
+    $.ajax({
+        url: apiUrl,
+        success: function(json) {
+            $("#errorMessage").hide();
+            $("#loginSection").hide();
+            $(".imgideaslogo").hide();
+            $(".newsSection").show();
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+           alert(textStatus, errorThrown);
+        },
+    
+        //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader ("Authorization", "Basic " + btoa(username + ":" + password));
+        },
+        type: 'GET',
+        contentType: 'json',
+    });
+
+
 }
 
-function credentialsValid(username, password) {
-    const valid = ('azubiApi' == username && 'azubiApi#123' == password);
-    console.log("credentials valid:", valid)
-    return valid;
-}
+
 /*Avatar ef*/
 function inputkeydown() {
     $("#Avatar").css("border", "2px solid #70a2d");
@@ -93,13 +100,20 @@ function goToApi(event) {
     const mypwd = $("#psw").val();
     const apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
     $.ajax({
-        headers: {
-            'Authorization': 'Basic ' + btoa(myuser + ':' +mypwd)
+        url: apiUrl,
+        success: function(json) {
+            alert("Success", json);
         },
-        url: apiUrl
-    });
-    $.get(apiUrl, function(data){
-        console.log(data);
-
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+           alert(textStatus, errorThrown);
+        },
+    
+        //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader ("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
+        },
+        type: 'GET',
+        contentType: 'json',
     });
 }
+

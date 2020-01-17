@@ -132,15 +132,18 @@
   /*  news section   */
 
   .newsSection {
-    margin-left: 15%;
-    margin-right: 15%;
-    padding: 1px;
+    margin-top: 5%;
+    margin-left: 19%;
+    margin-right: 19%;
+    display: block;
+    box-shadow: 1px 2px 15px 5px #94abc2;
+    border-radius: 5%;
   }
 
   .header{
     text-align: left;
     margin: 24px 0 5px 0;
-    background: #70a2d7;
+    background: #2d4866;
     padding: 5px;
   }
 
