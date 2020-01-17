@@ -1,9 +1,39 @@
-
-  .loginSection {
-    display: none;
-    margin-left: 15%;
-    margin-right: 15%;
+@media screen and (min-width: 1400px) {
+  #loginSection {
+    max-width: 1170px;
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
   }
+}
+@media screen and (min-width: 1600px) {
+  .loginSection {
+    max-width: 1170px;
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  .loginSection {
+    max-width: 1170px;
+    margin-top: 5%;
+    margin-left: 35%;
+    margin-right: 35%;
+  }
+}
+  
+
+
+  #loginSection {
+    margin-top: 5%;
+    margin-left: 19%;
+    margin-right: 19%;
+    display: block;
+    box-shadow: 1px 2px 15px 5px #94abc2;
+    border-radius: 5%;
+  }
+
 
   form {border: 3px solid #f1f1f1;
     margin-left: 3%;
@@ -21,37 +51,54 @@
     box-shadow: 1px 1px 2px 1px #5e758d
   }
 
-  button {
-    background-color: rgb(91, 185, 221);
+  #loginButton{
+    background-color: rgb(41, 74, 87);
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-    box-shadow: 1px 2px 1px 0.5px #70a2d7;
+    width: 25%;
+    box-shadow: 1px 2px 1px 0.5px hsl(213, 12%, 37%);
+    position: center;
+    align-content: center;
+    align-items: center;
+    margin-left: 35%;
   }
   button:hover {
     opacity: 0.7;
   }
 
+
+  #searchBtn{
+    background-color: rgb(41, 74, 87);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+    box-shadow: 1px 2px 1px 0.5px hsl(213, 12%, 37%);
+    position: center;
+    align-content: center;
+    align-items: center;
+    margin-left: 35%;
+  }
+
   .imgLogoAvatar {
     text-align: center;
-    margin: 2px 0 12px 0;
+    margin: 2px 20 12px 0;
   }
   img.Avatar {
     width: 40%;
     border-radius: 20%;
     box-shadow: 5px 9px 5px 2px #aaaaaa;
+    margin-top: 5%;
   }
   .loginContainer {
     padding: 40px;
   }
 
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
 
   .imgideaslogo {
     text-align: center;
@@ -70,12 +117,6 @@
     margin-right: 25%;
   }
 
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-  }
 
   .errorMessage {
     display: none;
@@ -151,18 +192,73 @@
 
       /*  news section Results  */
 
-      .resultaPage{
-        margin-top: 75px;
-        margin-left: 10px;
-        margin-right: 10px;
-        padding: 5px;
+      .resultsPage{
+        margin-top: 2px;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding: 2px;
         background: #b5c4d6;
       }
 
+article{
+  margin-right: 15%;
+  position: absolute;
+}
+
+/**/
+.live-search-list {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 1em;
+  background-color: #2c3e50;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  }
+
+  .live-search-list li {
+    color: fff;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
+    }
+
+    .infotxt{
+      color: #2196F3;
+    }
 
 
 
 
-
+    ol {
+      background: #ff9999;
+      padding: 20px;
+    }
+    
+    ul {
+      background: #3399ff;
+      padding: 20px;
+      position: relative;
+      border: 2px;
+      border: #b30000;
+    }
+    
+    ol li {
+      background: #ffe5e5;
+      padding: 5px;
+      margin-left: 35px;
+      margin: 1%;
+    }
+    
+    ul li {
+      background: #cce5ff;
+      position: relative;
+      margin: 5px;
+      border: 2px;
+      border: #b30000;
+    }
 
 /*# sourceMappingURL=/main.af46ece4.css.map */

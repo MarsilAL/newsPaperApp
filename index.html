@@ -14,95 +14,76 @@
 
 <body>
 
+    <!-- Login Section-->
     <section id="loginSection" class="loginSection">
-        <article>
-            <div class="imgLogoAvatar">
-                <img src="/images/logo.png" alt="Avatar" class="Avatar" id="Avatar">
-            </div>
 
-            <div class="loginContainer">
+        <div class="imgLogoAvatar">
+            <img src="/images/logo.png" alt="Avatar" class="Avatar" id="Avatar">
+        </div>
 
-                <p class='errorMessage' id='errorMessage'>Eingabe falsch</p>
+        <div class="loginContainer">
 
-                <label for="uname"><b>UserName</b></label>
-                <input type="text" placeholder="Enter your username ..." name="uname" id="uname" required>
+            <p class='errorMessage' id='errorMessage'>Eingabe falsch</p>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter your user password ..." name="psw" id="psw" required>
+            <label for="uname"><b>UserName</b></label>
+            <input type="text" placeholder="Enter your username ..." name="uname" id="uname" required>
 
-                <button id="loginButton"><b>Login</b></button>
-
-            </div>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter your user password ..." name="psw" id="psw" required>
+            <button class="loginButton" id="loginButton"><b>Login</b></button>
+        </div>
 
 
         </article>
 
     </section>
 
+
+
+    <!-- News Section-->
+
     <section id="newsSection" class="newsSection">
+        <div class="header">
+            <img src="/images/logo.png" alt="hlogo" class="hlogo">
+            <p class="welcomet">WELCOME</p>
+        </div>
 
-       
-            <div class="header">
+        <div id="searchdiv" class="searchdiv">
+            <!-- Search form -->
 
-                <img src="/images/logo.png" alt="hlogo" class="hlogo">
+            <div>
 
+
+                <input class="inputTag" type="text" name="s" placeholder="Search...">
+                <button class="goApi" id="goApi"><b>search</b></button>
             </div>
 
-            <center>
-                    <p>WELCOME</p>
-                </center>
-                <div id="searchdiv" class="searchdiv">
-                    <!-- Search form -->
-                    <form class="searchForm" id="searchForm" action="">
-                        <input type="text" placeholder="Search.." name="search">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-
-                </div>
-
-            <figure class="resultaPage" id="resultsPage">
-
-
-                <article class="resutlsar" id=class="resutlsar">
-
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-                    <br>a line break.
-
-
-
-
-                </article>
 
 
 
 
 
-
-            </figure>
-
-      
+            <!-- the result of the search will be rendered inside this div -->
+            <div id="result"></div>
 
 
 
+
+            <button id="searchBtn">add</button>
+
+
+
+            <article class="resultsar" id="resultsar">
+
+
+                <ul>
+                    <li></li>
+
+                </ul>
+            </article>
     </section>
-
-
 </body>
 <footer>
-    <div class="imgideaslogo">
-        <button class="btn" id="btn"><b>Enter</b></button>
-        <img src="/images/ideaslogo.png" alt="ideaslogo" class="ideaslogo">
-        <button class="btn" id="btn"><b>Enter</b></button>
-    </div>
-
 </footer>
 
 </html>

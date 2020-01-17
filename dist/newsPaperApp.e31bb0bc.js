@@ -123,8 +123,9 @@ $(document).ready(function () {
   $(".errorMessage").hide();
   $(".newsSection").hide(); // register click handlers
 
-  $(".btn").click(handleEnter);
-  $("#loginButton").click(handleLogin);
+  $("#loginButton").click(handleLogin); // $("#searchBtn").click(askApi);
+
+  $("#goApi").click(goToApi);
   /*Avatar ef*/
 
   $("#uname").keydown(inputkeydown);
@@ -133,13 +134,7 @@ $(document).ready(function () {
   $("#psw").keydown(pswkeydown);
   $("#psw").keyup(pswkeyup);
   $("#psw").keypress(pswkeypress);
-}); // function Handlers
-
-function handleEnter() {
-  $(".loginSection").slideDown();
-  $(".btn").hide();
-  $(".centered").hide();
-}
+});
 
 function handleLogin(event) {
   event.preventDefault();
@@ -153,11 +148,14 @@ function handleLogin(event) {
     $(".newsSection").show();
   } else {
     $("#errorMessage").show();
+    $("#Avatar").css("transform", "rotateY(180deg)");
+    $("#Avatar").css("background-color", "red");
+    $("#Avatar").css("border", "2px solid #reff0000d");
   }
 }
 
 function credentialsValid(username, password) {
-  var valid = 123 == username && 123 == password;
+  var valid = 'azubiApi' == username && 'azubiApi#123' == password;
   console.log("credentials valid:", valid);
   return valid;
 }
@@ -187,6 +185,45 @@ function pswkeyup() {
 function pswkeydown() {
   $("#Avatar").css("border", "2px solid #BC26D7");
 }
+/**Search */
+
+/*
+function askApi() {
+    const testUrl = "https://www.w3.org/TR/PNG/iso_8859-1.txt";
+    const searchInput = $("#inputSearch").val();
+
+    $.get(testUrl, function(data, status){
+        $("li").append(data);
+        console.log(status);
+        alert(status);
+      });
+
+  //  const searchResult = 
+ // $("#resultsar").load("https://www.w3.org/TR/PNG/iso_8859-1.txt");
+
+   // console.log(searchResult);
+
+    $("#resultsar").css("border", "2px solid #BC26D7");
+    $("#resultsar").append(" <b>you are seraching for ..</b>.", searchInput);
+    console.log("<p class='infotxt'>You are search for : </p>", searchInput);
+}
+*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+
+function goToApi(event) {
+  var myuser = $("#uname").val();
+  var mypwd = $("#psw").val();
+  var apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
+  $.ajax({
+    headers: {
+      'Authorization': 'Basic ' + btoa(myuser + ':' + mypwd)
+    },
+    url: apiUrl
+  });
+  $.get(apiUrl, function (data) {
+    console.log(data);
+  });
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -215,7 +252,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62457" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49284" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
