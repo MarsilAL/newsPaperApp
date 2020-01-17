@@ -188,47 +188,24 @@ function pswkeydown() {
 }
 /**Search */
 
-/*
-function askApi() {
-    const testUrl = "https://www.w3.org/TR/PNG/iso_8859-1.txt";
-    const searchInput = $("#inputSearch").val();
-
-    $.get(testUrl, function(data, status){
-        $("li").append(data);
-        console.log(status);
-        alert(status);
-      });
-
-  //  const searchResult = 
- // $("#resultsar").load("https://www.w3.org/TR/PNG/iso_8859-1.txt");
-
-   // console.log(searchResult);
-
-    $("#resultsar").css("border", "2px solid #BC26D7");
-    $("#resultsar").append(" <b>you are seraching for ..</b>.", searchInput);
-    console.log("<p class='infotxt'>You are search for : </p>", searchInput);
-}
-*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
 
 function goToApi(event) {
+  event.preventDefault();
   var myuser = $("#uname").val();
   var mypwd = $("#psw").val();
-  var apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
-  $.ajax({
-    url: apiUrl,
-    success: function success(json) {
-      alert("Success", json);
-    },
-    error: function error(XMLHttpRequest, textStatus, errorThrown) {
-      alert(textStatus, errorThrown);
-    },
-    //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
+  var input = $("#inputTxt").val();
+  var articlesLimit = $("#articlesLimit").val();
+  $.get({
+    url: 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q= ' + encodeURI(input) + '&limit=' + articlesLimit,
     beforeSend: function beforeSend(xhr) {
       xhr.setRequestHeader("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
     },
-    type: 'GET',
-    contentType: 'json'
+    success: function success(data) {
+      console.log(data), $("#result").append("<p class='article__title'>" + data.documents[0].title + "<p>").append("<br></br>").append("category: " + data.documents[0].category).addClass("article__category").append("<br></br>").append("Article: " + data.documents[0].content).append("<a href=" + data.documents[0].url + ">" + "Go To the article." + "</a>");
+    },
+    error: function error(XMLHttpRequest, textStatus, errorThrown) {
+      alert(textStatus, errorThrown);
+    }
   });
 }
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -259,7 +236,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51107" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62039" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

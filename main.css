@@ -1,34 +1,52 @@
-@media screen and (min-width: 1400px) {
-  #loginSection {
-    max-width: 1170px;
-    margin-top: 5%;
-    margin-left: 35%;
-    margin-right: 35%;
+
+  @media screen and (min-width: 1200px) {
+    .loginSection {
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+    .newsSection {
+      margin-left: 30%;
+      margin-right: 30%;
+    }
+  }
+ @media screen and (min-width: 1400px) {
+  .loginSection {
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  .newsSection {
+    margin-left: 30%;
+    margin-right: 30%;
   }
 }
+
 @media screen and (min-width: 1600px) {
   .loginSection {
-    max-width: 1170px;
-    margin-top: 5%;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 30%;
+    margin-right: 30%;
   }
-}
+  .newsSection {
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+} 
+
+
 @media screen and (min-width: 1900px) {
   .loginSection {
-    max-width: 1170px;
-    margin-top: 5%;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+  .newsSection {
+    margin-left: 30%;
+    margin-right: 30%;
   }
 }
-  
 
-
-  #loginSection {
+ #loginSection {
     margin-top: 5%;
-    margin-left: 19%;
-    margin-right: 19%;
+    margin-left: 15%;
+    margin-right: 15%;
     display: block;
     box-shadow: 1px 2px 15px 5px #94abc2;
     border-radius: 5%;
@@ -70,7 +88,7 @@
   }
 
 
-  #searchBtn{
+  #goApi{
     background-color: rgb(41, 74, 87);
     color: white;
     padding: 14px 20px;
@@ -89,8 +107,8 @@
     text-align: center;
     margin: 2px 20 12px 0;
   }
-  img.Avatar {
-    width: 40%;
+  .Avatar {
+    width: 20%;
     border-radius: 20%;
     box-shadow: 5px 9px 5px 2px #aaaaaa;
     margin-top: 5%;
@@ -100,25 +118,7 @@
   }
 
 
-  .imgideaslogo {
-    text-align: center;
-    margin: 12px 0 12px 0;
-  }
-  img.ideaslogo {
-    width: 40%;
-    border-radius: 20%;
-    
-  }
-
-  .imgideaslogo{
-    background-color: black;
-    margin: 12px 5 12px 50px;
-    margin-left: 25%;
-    margin-right: 25%;
-  }
-
-
-  .errorMessage {
+  .loginSection__errorMessage {
     display: none;
     color: red;
     text-align: center;
@@ -133,11 +133,16 @@
 
   .newsSection {
     margin-top: 5%;
-    margin-left: 19%;
-    margin-right: 19%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 10%;
+    padding-bottom: 1%;
     display: block;
     box-shadow: 1px 2px 15px 5px #94abc2;
     border-radius: 5%;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
   }
 
   .header{
@@ -208,58 +213,22 @@ article{
   position: absolute;
 }
 
+#result{
+  margin-top: 3%;
+  margin-right: 5%;
+  margin-left: 5%;
+  border: 2px;
+  border: #2d4866;
+  box-shadow: 1px;
+}
+
+.article__title{
+  text-align: center;
+  font-size: 30px;
+}
+
+.article__url{
+  box-shadow: 3px 6px 15px 0px #5e758d
+}
+
 /**/
-.live-search-list {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 1em;
-  background-color: #2c3e50;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  font-family: 'Lato', sans-serif;
-  color: #fff;
-  }
-
-  .live-search-list li {
-    color: fff;
-    list-style: none;
-    padding: 0;
-    margin: 5px 0;
-    }
-
-    .infotxt{
-      color: #2196F3;
-    }
-
-
-
-
-    ol {
-      background: #ff9999;
-      padding: 20px;
-    }
-    
-    ul {
-      background: #3399ff;
-      padding: 20px;
-      position: relative;
-      border: 2px;
-      border: #b30000;
-    }
-    
-    ol li {
-      background: #ffe5e5;
-      padding: 5px;
-      margin-left: 35px;
-      margin: 1%;
-    }
-    
-    ul li {
-      background: #cce5ff;
-      position: relative;
-      margin: 5px;
-      border: 2px;
-      border: #b30000;
-    }

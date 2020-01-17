@@ -74,46 +74,37 @@ function pswkeydown() {
 
 
 /**Search */
-/*
-function askApi() {
-    const testUrl = "https://www.w3.org/TR/PNG/iso_8859-1.txt";
-    const searchInput = $("#inputSearch").val();
 
-    $.get(testUrl, function(data, status){
-        $("li").append(data);
-        console.log(status);
-        alert(status);
-      });
+function goToApi(event){
+    event.preventDefault();
 
-  //  const searchResult = 
- // $("#resultsar").load("https://www.w3.org/TR/PNG/iso_8859-1.txt");
-
-   // console.log(searchResult);
-
-    $("#resultsar").css("border", "2px solid #BC26D7");
-    $("#resultsar").append(" <b>you are seraching for ..</b>.", searchInput);
-    console.log("<p class='infotxt'>You are search for : </p>", searchInput);
-}
-*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-function goToApi(event) {
     const myuser = $("#uname").val();
     const mypwd = $("#psw").val();
-    const apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
-    $.ajax({
-        url: apiUrl,
-        success: function(json) {
-            alert("Success", json);
+    const input = $("#inputTxt").val();
+    const articlesLimit = $("#articlesLimit").val();
+    $.get({
+        url: 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q= '+ encodeURI(input)+'&limit=' + articlesLimit,
+
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader ("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
+          },
+
+
+        success: function(data) {
+            console.log(data),
+
+            $( "#result" )
+            .append( "<p class='article__title'>" + data.documents[0].title + "<p>" )
+            .append("<br></br>")
+            .append("category: "+ data.documents[0].category).addClass("article__category")
+            .append("<br></br>")
+            .append( "Article: " + data.documents[0].content )
+            .append( "<a href="+ data.documents[0].url + ">" +"Go To the article." + "</a>")
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
-           alert(textStatus, errorThrown);
-        },
-    
-        //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
-        beforeSend: function (xhr) {
-          xhr.setRequestHeader ("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
-        },
-        type: 'GET',
-        contentType: 'json',
-    });
-}
+            alert(textStatus, errorThrown);
+         },
 
+        });
+
+}
