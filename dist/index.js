@@ -117,103 +117,74 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
-$(document).ready(function () {
-  // display the main screen, hide others
-  $(".errorMessage").hide();
-  $(".newsSection").hide(); // register click handlers
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-  $("#loginButton").click(handleLogin); // $("#searchBtn").click(askApi);
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
+  }
 
-  $("#goApi").click(goToApi);
-  /*Avatar ef*/
-
-  $("#uname").keydown(inputkeydown);
-  $("#uname").keyup(inputkeyup);
-  $("#uname").keypress(inputkeypress);
-  $("#psw").keydown(pswkeydown);
-  $("#psw").keyup(pswkeyup);
-  $("#psw").keypress(pswkeypress);
-});
-
-function handleLogin(event) {
-  event.preventDefault();
-  var username = $("#uname").val();
-  var password = $("#psw").val();
-  var apiUrl = 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q=Putin&limit=5';
-  $.ajax({
-    url: apiUrl,
-    success: function success(json) {
-      $("#errorMessage").hide();
-      $("#loginSection").hide();
-      $(".imgideaslogo").hide();
-      $(".newsSection").show();
-    },
-    error: function error(XMLHttpRequest, textStatus, errorThrown) {
-      alert(textStatus, errorThrown);
-    },
-    //headers: {'Authorization': 'Basic bWFkaHNvbWUxMjM='},
-    beforeSend: function beforeSend(xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
-    },
-    type: 'GET',
-    contentType: 'json'
-  });
-}
-/*Avatar ef*/
-
-
-function inputkeydown() {
-  $("#Avatar").css("border", "2px solid #70a2d");
+  return bundleURL;
 }
 
-function inputkeyup() {
-  $("#Avatar").css("border", "2px solid #EFC21E");
-}
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
 
-function inputkeypress() {
-  $("#Avatar").css("border", "2px solid #BC26D7");
-}
-
-function pswkeypress() {
-  $("#Avatar").css("border", "2px solid #70a2d");
-}
-
-function pswkeyup() {
-  $("#Avatar").css("border", "2px solid #EFC21E");
-}
-
-function pswkeydown() {
-  $("#Avatar").css("border", "2px solid #BC26D7");
-}
-/**Search */
-
-
-function goToApi(event) {
-  event.preventDefault();
-  var myuser = $("#uname").val();
-  var mypwd = $("#psw").val();
-  var input = $("#inputTxt").val();
-  var articlesLimit = $("#articlesLimit").val();
-  $.get({
-    url: 'https://sandbox-api.ipool.asideas.de/sandbox/api/search?q= ' + encodeURI(input) + '&limit=' + articlesLimit,
-    beforeSend: function beforeSend(xhr) {
-      xhr.setRequestHeader("Authorization", "Basic " + btoa(myuser + ":" + mypwd));
-    },
-    success: function success(data) {
-      for (i = 0; i < articlesLimit; i++) {
-        $("#result").append("<div class='articles'></div>");
-        $(".articles").append("<p color='#ffffff' class='article__title' id='article__title' >" + data.documents[i].title + "<p>").append("<br></br>").append("<p class='category' id='category'>" + "category: " + data.documents[i].category + " </p>").append("<br></br>").append("<div class='content' id='content'>" + data.documents[i].content + " </div>").append("<a class ='aUrl' class='aUrl' href=" + data.documents[i].url + ">" + "Go To the article." + "</a>").append("<br></br>").append("<br></br>").append("<hr>");
-      }
-
-      console.log(data);
-    },
-    error: function error(XMLHttpRequest, textStatus, errorThrown) {
-      alert(textStatus, errorThrown);
+    if (matches) {
+      return getBaseURL(matches[0]);
     }
-  });
+  }
+
+  return '/';
 }
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+}
+
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
+
+function updateLink(link) {
+  var newLink = link.cloneNode();
+
+  newLink.onload = function () {
+    link.remove();
+  };
+
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+
+var cssTimeout = null;
+
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
+
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
+    }
+
+    cssTimeout = null;
+  }, 50);
+}
+
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -417,5 +388,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/newsPaperApp.e31bb0bc.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/index.js.map

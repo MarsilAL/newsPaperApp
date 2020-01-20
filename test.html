@@ -1,16 +1,17 @@
-<!DOCTYPE html>
+<html>
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+<script type="text/javascript">
+function performSearch() {
+    var searchTerm = encodeURIComponent(document.getElementById('searchField').value);
+    window.open('http://www.google.com/search?q=' + searchTerm, 'new_window_1');
+    window.open('http://search.yahoo.com/search?p=' + searchTerm, 'new_window_2');
+    // open more tabs here ...
+}
+</script>
 </head>
-<body class="container content">
-    <h1 class="title is-3">Count the requests in the network tab</h1>
-    <input id="count" class="input is-danger">
-   
-   <script>
-    $.get("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js");
-    
-    $("#count").on('keyup',function(element){if(element.currentTarget.value==4){$("#count").removeClass("is-danger")$("#count").addClass("is-success")}else{$("#count").removeClass("is-success");$("#count").addClass("is-danger")}});
-    </script>
+
+<body>
+<input id="searchField" type="text" />
+<input type="button" value="click me" onclick="performSearch();" />
 </body>
 </html>

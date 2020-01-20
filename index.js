@@ -18,9 +18,6 @@ $(document).ready(function () {
 
 });
 
-
-
-
 function handleLogin(event) {
     event.preventDefault();
 
@@ -90,22 +87,26 @@ function goToApi(event) {
         },
 
 
-        success: function (data) {
+        success: function (data) {            
 
-            for (i = 0; i < articlesLimit; i++) {
-                $("#result")
-                    .append("<p class='article__title'>" + data.documents[i].title + "<p>")
+                for (i = 0; i < articlesLimit; i++) {
+
+                    $("#result")
+                    .append("<div class='articles'></div>")
+                    $(".articles")
+                    .append("<p color='#ffffff' class='article__title' id='article__title' >" + data.documents[i].title + "<p>")
                     .append("<br></br>")
-                    .append("category: " + data.documents[i].category).addClass("article__category")
+                    .append("<p class='category' id='category'>" + "category: " + data.documents[i].category + " </p>")
                     .append("<br></br>")
-                    .append("Article: " + data.documents[i].content)
-                    .append("<a href=" + data.documents[i].url + ">" + "Go To the article." + "</a>")
+                    .append("<div class='content' id='content'>" +  data.documents[i].content + " </div>")
+                    .append("<a class ='aUrl' class='aUrl' href=" + data.documents[i].url + ">" + "Go To the article." + "</a>")
+                    .append("<br></br>")
                     .append("<br></br>")
                     .append("<hr>")
-                    .append("<br></br>")
-                    .append("<hr>")
 
-            }
+                }
+                console.log(data)
+                
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(textStatus, errorThrown);
