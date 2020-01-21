@@ -7,6 +7,8 @@ $(document).ready(function () {
     $("#loginButton").click(handleLogin);
     // $("#searchBtn").click(askApi);
     $("#goApi").click(goToApi);
+    $(".xBtn").click(xAction);
+    $(".favBtn").click(favAction);
 
     /*Avatar ef*/
     $("#uname").keydown(inputkeydown);
@@ -48,25 +50,29 @@ function handleLogin(event) {
 
 }
 
+function xAction() {
+    $(".articles").fadeOut();
+}
+
 
 /*Avatar ef*/
 function inputkeydown() {
-    $("#Avatar").css("border", "2px solid #70a2d");
+    $(".loginContainer").css("border", "2px solid #0ff");
 }
 function inputkeyup() {
-    $("#Avatar").css("border", "2px solid #EFC21E");
+    $(".loginContainer").css("border", "2px solid #00f");
 }
 function inputkeypress() {
-    $("#Avatar").css("border", "2px solid #BC26D7");
+    $(".loginContainer").css("border", "2px solid #FF69B4");
 }
 function pswkeypress() {
-    $("#Avatar").css("border", "2px solid #70a2d");
+    $(".loginContainer").css("border", "2px solid #0ff");
 }
 function pswkeyup() {
-    $("#Avatar").css("border", "2px solid #EFC21E");
+    $(".loginContainer").css("border", "2px solid #00f");
 }
 function pswkeydown() {
-    $("#Avatar").css("border", "2px solid #BC26D7");
+    $(".loginContainer").css("border", "2px solid #FF69B4");
 }
 
 
@@ -94,6 +100,8 @@ function goToApi(event) {
                     $("#result")
                     .append("<div class='articles'></div>")
                     $(".articles")
+                    .append("<button id='xBtn' class='xBtn'>X</button>")
+                    .append("<button id='favBtn' class='favBtn'>♡</button>")
                     .append("<p color='#ffffff' class='article__title' id='article__title' >" + data.documents[i].title + "<p>")
                     .append("<br></br>")
                     .append("<p class='category' id='category'>" + "category: " + data.documents[i].category + " </p>")

@@ -1,25 +1,68 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/main.af46ece4.css">
     <title>newsPaperApp</title>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="/newsPaperApp.e31bb0bc.js"></script>
-  
+<style>* {
+  box-sizing: border-box;
+}
+.menu {
+  float:left;
+  width:20%;
+  text-align:center;
+}
+.menu a {
+  background-color:#e5p5e9;
+  padding:8px;
+  margin-top:7px;
+  display:block;
+  width:100%;
+  color:white;
+  box-shadow: 0 4px 2px -2px gray;
+}
+.main {
+  float:left;
+  width:60%;
+  padding:0 20px;
+}
+.right {
+  background-color:#003157;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+}
+
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+}</style>
 <script src="/main.af46ece4.js"></script></head>
+<body style="font-family:Verdana;color:#aaaaaa;">
 
+<div style="background-color:#e5e5e5;padding:15px;text-align:center;">
+<h1><span style="color: #000000;">ideas</span><span style="color: #0000f0;">News</span><span style="color: #e83e8c;">_</span></h1>
+</div>
 
-<body>
+<div style="overflow:auto">
+  <div class="menu">
+    <a href="https://www.welt.de/">WELT</a>
+    <a href="https://www.axelspringer.de/">Axel Springer SE</a>
+    <a href="https://www.ideas-engineering.io/">ideas-engineering</a>
+  </div>
 
-    <!-- Login Section-->
+  <div class="main">
+    <h2> </h2>
+     <!-- Login Section-->
     <section id="loginSection" class="loginSection">
 
-        <div class="imgLogoAvatar">
-            <img src="/logo.6023b87e.png" alt="Avatar" class="Avatar" id="Avatar">
-        </div>
 
         <div class="loginContainer">
 
@@ -32,52 +75,51 @@
             <input type="password" placeholder="Enter your user password ..." name="psw" id="psw" required="">
             <button class="loginButton loginButton-primary loginButton-block loginButton-large" id="loginButton"><b>Login</b></button>
         </div>
-
-
-        
-
+     
     </section>
+    
+        <section id="newsSection" class="newsSection">
+            <div class="header">
+             <!-- News section -->
+                    <div id="searchdiv" class="searchdiv">
+                <!-- Search form -->
+                <input class="inputTxt" id="inputTxt" type="text" name="s" placeholder="Search..." required="">
+                <select name="articlesLimit" id="articlesLimit" class="articlesLimit">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option selected="seected">5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+                <button class="goApi goApi-primary goApi-block goApi-large" id="goApi"><b>search</b></button>
+            </div>
+
+            </div>
 
 
 
-    <!-- News Section-->
-
-    <section id="newsSection" class="newsSection">
-        <div class="header">
-            <img src="/logo.6023b87e.png" alt="hlogo" class="hlogo">
-            <p class="welcomet">WELCOME</p>
-
-                <div id="searchdiv" class="searchdiv">
-            <!-- Search form -->
-            <input class="inputTxt" id="inputTxt" type="text" name="s" placeholder="Search..." required="">
-            <select name="articlesLimit" id="articlesLimit" class="articlesLimit">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option selected="seected">5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-            </select>
-            <button class="goApi goApi-primary goApi-block goApi-large" id="goApi"><b>search</b></button>
-        </div>
-
-        </div>
+            <!-- the result of the search will be rendered inside this div -->
+            <div id="result" class="result"></div>
 
 
+            <article class="resultsar" id="resultsar">
+            </article>
+      </section>
+  </div>
 
-        <!-- the result of the search will be rendered inside this div -->
-        <div id="result" class="result"></div>
+  <div class="right">
+    <h2>Die Welt</h2>
+    <img width="100%" src="/welt.f0856c13.png" alt="Avatar" class="weltLogo" id="weltLogo">
+    <p>wwww.welt.de</p>
+  </div>
+</div>
 
+<div style="background-color:#e5e5e5;text-align:center;padding:10px;margin-top:7px;">© copyright ideas</div>
 
-        <article class="resultsar" id="resultsar">
-        </article>
-
-</section></body>
-<footer>
-</footer>
-
+</body>
 </html>
